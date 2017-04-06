@@ -1,5 +1,6 @@
 <?php
 
+  require 'app/models/spellbook.php';
   class HelloWorldController extends BaseController{
 
     public static function index(){
@@ -10,6 +11,12 @@
     public static function sandbox(){
       // Testaa koodiasi täällä
       // echo 'Hello World!';
-      View::make('helloworld.html');
+
+
+      //View::make('helloworld.html');
+      //$spellbooks = Spellbook::all();
+      $spells = Spell::all();
+      //Kint::dump($spellbooks);
+      Kint::dump($spells);
       }
   }
