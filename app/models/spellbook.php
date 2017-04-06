@@ -101,5 +101,15 @@ class Spell extends BaseModel{
     }
 	return null;
     }
+
+    public function add_spell(){
+    $query = DB::connection()->prepare('INSERT INTO Spell (name, type, school, level, components, castingtime, range, effect, targets, duration, savingthrow, spellresistance, description)
+    	     			        VALUES (:name, :type, :school, :level, :components, :castingtime, :range, :effect, :targets, :duration, :savingthrow, :spellresistance, :description));
+    $query->execute(array('name' => $this.name, 'type' => $this.type, 'school' => $this.school, 'level' => $this.level, 'components' => $this.components, 'castingtime' => $this.castingtime,
+                          'range' => $this.range, 'effect' => $this.effect, 'targets' => $this.targets, 'duration' => $this.duration, 'savingthrow'=>$this.savingthrow,
+			  'spellresistance' => $this.spellresistance, 'description' => $this.description));
+    $row = $query->fetch();
+    $this->id = $row['id'];
+    }
 	
 }
