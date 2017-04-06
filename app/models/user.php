@@ -25,4 +25,19 @@ class User extends BaseModel{
     }
 	return null;
     }
+
+    public static function find($id){
+      $query = DB::connection()->prepare('SELECT * FROM Player WHERE id = :id LIMIT 1');
+      $query->execute(array('id' => $id));
+      $row = $query->fetch();
+
+      if($row){
+      $user = new User(array(
+            'id' => $row['id'],
+      'name' => $row['name'],
+      'password' => $row['password']));
+      return $user;
+    }
+    return null;
+    }
 }
