@@ -1,6 +1,6 @@
 <?php
 
-  require 'app/models/spellbook.php';
+  //require 'app/models/spellbook.php';
   class HelloWorldController extends BaseController{
 
     public static function index(){
