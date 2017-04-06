@@ -18,5 +18,8 @@
       $spells = Spell::all();
       //Kint::dump($spellbooks);
       Kint::dump($spells);
+      $spell = Spell::find(1);
+      Kint::dump($spell);
+      
       }
   }
