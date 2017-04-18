@@ -5,7 +5,7 @@
 
     public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
-   	  echo 'Etusivu';
+   	  View::make('helloworld.html');
     }
 
     public static function sandbox(){

@@ -17,6 +17,12 @@ $_SESSION['user'] = $user->id;
 Redirect::to('/', array('message' => 'Kirjautuminen onnistui '));
 }
 }
+
+public static function logout(){
+$_SESSION['user'] = null;
+    Redirect::to('/login', array('message' => 'Your session has ended. Please login to continue use.'));
+}
+
 }
 
 
