@@ -3,7 +3,7 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://tilati.users.cs.helsinki.fi/SpellBook/login)
-* [Linkki dokumentaatiooni](https://www.github.com)
+* [Linkki dokumentaatiooni](https://github.com/Shirotsune/Tsoha-Bootstrap/blob/master/doc/documentation.pdf)
 
 ## Työn aihe
 
