@@ -73,6 +73,18 @@ class SpellJoin extends BaseModel{
       $query->execute('spellbook_id'=> $this.spellbook_id, 'spell_id' => $this.spell_id); 
       }
 
+      public static function cleanup_spellbook($id){
+      $query = DB::connection()->prepare('DELETE FROM Spells WHERE spellbook_id = :spellbook_id)');
+      $query->execute('spellbook_id'=> $id); 
+      
+      }
+
+      public static function cleanup_spell($id){
+      $query = DB::connection()->prepare('DELETE FROM Spells WHERE spell_id = :spell_id)');
+      $query->execute('spell_id' => $id); 
+      
+      }
+
 }
 
 
