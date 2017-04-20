@@ -46,6 +46,19 @@ class Spellbook extends BaseModel{
     $query->execute('id' => $this.id);   
     }
 
+    public static function add(){
+    $query = DB::connection()->prepare('INSERT INTO Spellbook (player_id, name) VALUES (:player_id, :name)');     
+    $query->execute(array('player_id' => $this.player_id, 'name' => $this.name);
+    $row = $query->fetch();
+    $this->id = $row['id'];
+    
+
+    }
+
+    public static function update(){
+    
+    }
+
 }
 
 class SpellJoin extends BaseModel{
