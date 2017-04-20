@@ -37,8 +37,15 @@ class Spellbook extends BaseModel{
 
       return $spellbook;
     }
-	return null;
+      return null;
     }
+
+    public static function delete(){
+    $SpellJoin.cleanup_spellbook($this.id);
+    $query = DB::connection()->prepare('DELETE FROM Spellbook WHERE id = :id)');
+    $query->execute('id' => $this.id);   
+    }
+
 }
 
 class SpellJoin extends BaseModel{
@@ -156,5 +163,10 @@ class Spell extends BaseModel{
     $row = $query->fetch();
     $this->id = $row['id'];
     }
-	
+
+public static function delete(){
+    $SpellJoin.cleanup_spell($this.id);
+    $query = DB::connection()->prepare('DELETE FROM Spell WHERE id = :id)');
+    $query->execute('id' => $this.id);   
+    }
 }
