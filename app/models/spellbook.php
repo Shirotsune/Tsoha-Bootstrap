@@ -56,6 +56,8 @@ class Spellbook extends BaseModel{
     }
 
     public static function update(){
+    $query = DB::connection()->prepare('UPDATE Spellbook SET player_id = :player_id,  name = :name');     
+    $query->execute(array('player_id' => $this.player_id, 'name' => $this.name);
     
     }
 
