@@ -63,6 +63,11 @@ class SpellJoin extends BaseModel{
       return $spells_in_book;
       }     
 
+      public static function add_to_spellbook(){
+      $query = DB::connection()->prepare('INSERT INTO Spells (spellbook_id, spell_id) VALUES (:spellbook_id, :spell_id)');
+      $query->execute('spellbook_id'=> $this.spellbook_id, 'spell_id' => $this.spell_id); 
+      }
+
 }
 
 
