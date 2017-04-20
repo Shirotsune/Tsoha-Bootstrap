@@ -41,6 +41,29 @@ class Spellbook extends BaseModel{
     }
 }
 
+class SpellJoin extends BaseModel{
+
+      public $spellbook_id, $spell_id
+
+      public function __construct($attributes){
+      parent::__construct($attributes);
+      }
+
+      public static function all($spellbook_id){
+      $query = DB::connection()->prepare('SELECT * FROM Spells WHERE spellbook_id = :spellbook_id');
+      $query->execute(array('spellbook_id' => $spellbook_id));
+      $rows = $query->fetchAll();
+      $spells_in_book = array();
+
+      foreach($rows as $row){
+      $spells_in_book[] = new SpellJoin(array(
+      'spellbook_id' => $spellbook_id,
+      'spell_id' => $row['spellbook_id']));
+      }
+      return $spells_in_book;
+      }     
+
+}
 
 
 class Spell extends BaseModel{
