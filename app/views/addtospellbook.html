@@ -47,11 +47,13 @@
         {% else %}
         <td>No</td>
         {% endif %}
+        <td>
         <form method="post" action="{{base_path}}/addtospellbook">
             <input type="hidden" name="spellbook_id" value="{{spellbook.id}}">
             <input type="hidden" name="spell_id" value="{{spell.id}}">
         <button type="submit" class="btn-primary">Add this spell to your Spellbook</button>
         </form>
+        </td>
     </tr>
     {% endfor %}
     </tbody>
