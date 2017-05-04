@@ -5,11 +5,6 @@ class UserController extends BaseController{
           View::make('login.html');
       }
 
-    public static function get_user_logged_in()
-    {
-        return $_SESSION['user'];
-    }
-
     public static function handle_login(){
         $params = $_POST;
         $user = User::authenticate($params['username'], $params['password']);
