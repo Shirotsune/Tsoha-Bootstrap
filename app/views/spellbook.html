@@ -2,7 +2,7 @@
 {% block content %}
 <h1> {{spellbook.name}}</h1>
 
-<p> <a href="{{base_path}}/spell_to_spellbook/{{spellbook.id}}" class="btn btn-success"> Add a spell</a> </p>
+<p> <a href="{{base_path}}/spell_to_spellbook/{{list.spellbook.id}}" class="btn btn-success"> Add a spell</a> </p>
 
 <table class="table table-striped table-bordered">
     <thead>
@@ -23,7 +23,7 @@
     </thead>
 
     <tbody>
-    {% for spell in spells %}
+    {% for spell in list.spells %}
     <tr>
         <td><a href="{{base_path}}/spells/{{spell.id}}">{{spell.name}}</a></td>
         <td>{{spell.type}}</td>
