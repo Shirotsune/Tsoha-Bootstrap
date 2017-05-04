@@ -16,7 +16,7 @@ class SpellbookController extends BaseController{
 
     public static function new_spell(){
         $params = $_POST;
-        Kint::dump($params);
+        Kint::dump($params['type']);
 /*
         $spell = new Spell(array(
             'name' => $params['name'],
