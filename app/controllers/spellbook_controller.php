@@ -16,7 +16,8 @@ class SpellbookController extends BaseController{
 
     public static function new_spell(){
         $params = $_POST;
-
+        Kint::dump($params);
+/*
         $spell = new Spell(array(
             'name' => $params['name'],
             'type' => $params['type'],
@@ -32,7 +33,7 @@ class SpellbookController extends BaseController{
             'spellresistance' => $params['spellresistance'],
             'description' => $params['description']));
         $spell->add_spell();
-    }
+  */  }
 
     public static function spells(){
         $spells = Spell::all();
