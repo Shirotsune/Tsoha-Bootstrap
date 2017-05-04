@@ -14,7 +14,7 @@
     <tbody>
     {% for spellbook in spellbooks %}
     <tr>
-        <td>{{spellbook.name}}</td>
+        <td href="{{base_path}}/spellbook/{{spellbook.id}}">{{spellbook.name}}</td>
     </tr>
     {% endfor %}
     </tbody>
