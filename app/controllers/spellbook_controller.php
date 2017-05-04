@@ -19,7 +19,7 @@ class SpellbookController extends BaseController{
         $params = $_POST;
         $spell = new Spell(array(
             'name' => $params['name'],
-            'type' => $params['spelltype'],
+            'type' => $params['type'],
             'school' => $params['school'],
             'level' => $params['level'],
             'components' => $params['components'],
