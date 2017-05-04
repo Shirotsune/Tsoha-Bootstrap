@@ -12,6 +12,14 @@ $routes->post('/spells','check_logged_in', function(){
     SpellbookController::new_spell();
 });
 
+$routes->post('/spell_to_spellbook', function(){
+    SpellbookController::new_spell_to_spellbook();
+});
+
+$routes->get('/spell_to_spellbook', 'check_logged_in', function($id){
+    SpellbookController::add_to_spellbook($id);
+});
+
 $routes->get('/spellbooks/:id', 'check_logged_in', function($id){
    SpellbookController::showspellbook($id);
 });

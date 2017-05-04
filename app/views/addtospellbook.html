@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<h1> {{spellbook.name}}</h1>
+<h1> All Spells </h1>
 
-<p> <a href="{{base_path}}/spell_to_spellbook" class="btn btn-success"> Add a spell</a> </p>
 
 <table class="table table-striped table-bordered">
     <thead>
@@ -48,7 +47,11 @@
         {% else %}
         <td>No</td>
         {% endif %}
-
+        <form method="post" action="{{base_path}}/addtospellbook">
+            <input type="hidden" name="spellbook_id" value="{{spellbook.id}}">
+            <input type="hidden" name="spell_id" value="{{spell.id}}">
+        <button type="submit" class="btn-primary">Add this spell to your Spellbook</button>
+        </form>
     </tr>
     {% endfor %}
     </tbody>
