@@ -55,7 +55,7 @@ class SpellbookController extends BaseController{
 
     public static function showspellbook($id){
         $spellbook = Spellbook::find($id);
-        $spelljoin = JoinSQL::all($id);
+        $spelljoin = JoinSQL::find($id);
         View::make('spellbook.html', array('spellbook' =>$spellbook), array('spells' =>$spelljoin));
     }
 
