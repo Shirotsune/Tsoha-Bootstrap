@@ -75,7 +75,7 @@ class SpellbookController extends BaseController{
 
     public static function add_to_spellbook($id){
         $spells = Spell::all();
-        $spellbook = Spellbook::find($id);
-        View::make('addtospellbook.html', array('spellbook' => $spellbook), array('spells' => $spells), $id);
+        array_push($spells, array("spellbook_id"=> $id));
+        View::make('addtospellbook.html', array('spells' => $spells));
     }
 }
