@@ -41,7 +41,7 @@ class Spellbook extends BaseModel{
     }
 
     public function delete(){
-        $SpellJoin.cleanup_spellbook($this.id);
+        SpellJoin::cleanup_spellbook($this->id);
         $query = DB::connection()->prepare('DELETE FROM Spellbook WHERE id = :id');
         $query->execute(array('id' => $this->id));
     }
@@ -87,12 +87,12 @@ class SpellJoin extends BaseModel{
 
     public function add_to_spellbook(){
         $query = DB::connection()->prepare('INSERT INTO Spells (spellbook_id, spell_id) VALUES (:spellbook_id, :spell_id)');
-        $query->execute(array('spellbook_id'=> $this.spellbook_id, 'spell_id' => $this.spell_id));
+        $query->execute(array('spellbook_id'=> $this->spellbook_id, 'spell_id' => $this->spell_id));
     }
 
     public function remove_from_spellbook(){
         $query = DB::connection()->prepare('DELETE FROM Spells WHERE spellbook_id = :spellbook_id AND spell_id = :spell_id');
-        $query->execute(array('spellbook_id'=> $this.spellbook_id, 'spell_id' => $this.spell_id));
+        $query->execute(array('spellbook_id'=> $this->spellbook_id, 'spell_id' => $this->spell_id));
     }
 
     public static function cleanup_spellbook($id){
@@ -175,14 +175,14 @@ class Spell extends BaseModel{
         $query = DB::connection()->prepare('INSERT INTO Spell (name, type, school, level, components, castingtime, range, effect, targets, duration, savingthrow, spellresistance, description)
     	     			        VALUES (:name, :type, :school, :level, :components, :castingtime, :range, :effect, :targets, :duration, :savingthrow, :spellresistance, :description) RETURNING id');
         $query->execute(array('name' => $this->name, 'type' => $this->type, 'school' => $this->school, 'level' => $this->level, 'components' => $this->components, 'castingtime' => $this->castingtime,
-            'range' => $this.range, 'effect' => $this->effect, 'targets' => $this->targets, 'duration' => $this->duration, 'savingthrow'=>$this->savingthrow,
+            'range' => $this->range, 'effect' => $this->effect, 'targets' => $this->targets, 'duration' => $this->duration, 'savingthrow'=>$this->savingthrow,
             'spellresistance' => $this->spellresistance, 'description' => $this->description));
         $row = $query->fetch();
         $this->id = $row['id'];
     }
 
     public function delete(){
-        SpellJoin.cleanup_spell($this.id);
+        SpellJoin.cleanup_spell($this->id);
         $query = DB::connection()->prepare('DELETE FROM Spell WHERE id = :id');
         $query->execute(array('id' => $this->id));
     }
