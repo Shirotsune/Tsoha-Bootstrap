@@ -43,14 +43,14 @@ class Spellbook extends BaseModel{
     public function delete(){
     $SpellJoin.cleanup_spellbook($this.id);
     $query = DB::connection()->prepare('DELETE FROM Spellbook WHERE id = :id');
-    $query->execute(array('id' => $this.id));   
+    $query->execute(array('id' => $this->id));
     }
 
     public function add(){
         Kint::dump($this->player_id);
         Kint::dump($this->name);
 
-    $query = DB::connection()->prepare('INSERT INTO Spellbook (player_id, name) VALUES (:player_id, :name)');     
+    $query = DB::connection()->prepare('INSERT INTO Spellbook (player_id, name) VALUES (:player_id, :name) RETURNING id');
     $query->execute(array('player_id' => $this->player_id, 'name' => $this->name));
     $row = $query->fetch();
     $this->id = $row['id'];
@@ -60,7 +60,7 @@ class Spellbook extends BaseModel{
 
     public function update(){
     $query = DB::connection()->prepare('UPDATE Spellbook SET player_id = :player_id,  name = :name');     
-    $query->execute(array('player_id' => $this.player_id, 'name' => $this.name));
+    $query->execute(array('player_id' => $this->player_id, 'name' => $this->name));
     
     }
 
@@ -89,7 +89,7 @@ class SpellJoin extends BaseModel{
       }     
 
       public function add_to_spellbook(){
-      $query = DB::connection()->prepare('INSERT INTO Spells (spellbook_id, spell_id) VALUES (:spellbook_id, :spell_id)');
+      $query = DB::connection()->prepare('INSERT INTO Spells (spellbook_id, spell_id) VALUES (:spellbook_id, :spell_id) RETURNING id');
       $query->execute(array('spellbook_id'=> $this.spellbook_id, 'spell_id' => $this.spell_id)); 
       }
 
@@ -174,10 +174,10 @@ class Spell extends BaseModel{
 
     public function add_spell(){
     $query = DB::connection()->prepare('INSERT INTO Spell (name, type, school, level, components, castingtime, range, effect, targets, duration, savingthrow, spellresistance, description)
-    	     			        VALUES (:name, :type, :school, :level, :components, :castingtime, :range, :effect, :targets, :duration, :savingthrow, :spellresistance, :description)');
-    $query->execute(array('name' => $this.name, 'type' => $this.type, 'school' => $this.school, 'level' => $this.level, 'components' => $this.components, 'castingtime' => $this.castingtime,
-                          'range' => $this.range, 'effect' => $this.effect, 'targets' => $this.targets, 'duration' => $this.duration, 'savingthrow'=>$this.savingthrow,
-			  'spellresistance' => $this.spellresistance, 'description' => $this.description));
+    	     			        VALUES (:name, :type, :school, :level, :components, :castingtime, :range, :effect, :targets, :duration, :savingthrow, :spellresistance, :description) RETURNING id');
+    $query->execute(array('name' => $this->name, 'type' => $this->type, 'school' => $this->school, 'level' => $this->level, 'components' => $this->components, 'castingtime' => $this->castingtime,
+                          'range' => $this.range, 'effect' => $this->effect, 'targets' => $this->targets, 'duration' => $this->duration, 'savingthrow'=>$this->savingthrow,
+			  'spellresistance' => $this->spellresistance, 'description' => $this->description));
     $row = $query->fetch();
     $this->id = $row['id'];
     }
@@ -185,6 +185,6 @@ class Spell extends BaseModel{
 public function delete(){
     SpellJoin.cleanup_spell($this.id);
     $query = DB::connection()->prepare('DELETE FROM Spell WHERE id = :id');
-    $query->execute(array('id' => $this.id));   
+    $query->execute(array('id' => $this->id));
     }
 }
