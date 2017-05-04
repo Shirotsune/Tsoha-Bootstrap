@@ -2,7 +2,7 @@
 INSERT INTO Player (name, password) VALUES ('velho', 'salainen');
 INSERT INTO Player (name, password) VALUES ('noita', 'salainen');
 
-INSERT INTO Spell (name, type, school, level, components, castingtime, range, effect, targets, duration, savingthrow, spellresistance, description) VALUES('Magic Missile', 'Arcane', 'Evocation [Force]', 1, 'V, S', '1 Standard Action', 'Medium (100 ft. + 10 ft./level)', '', 'Up to five creatures, no two of which can be more than 15 ft. apart', 'Instantaneous', 'None', 'Yes', ' A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.
+INSERT INTO Spell (name, type, school, level, components, castingtime, range, effect, targets, duration, savingthrow, spellresistance, description) VALUES('Magic Missile', 'Arcane', 'Evocation Force', 1, 'V, S', '1 Standard Action', 'Medium (100 ft. + 10 ft./level)', '', 'Up to five creatures, no two of which can be more than 15 ft. apart', 'Instantaneous', 'None', 'Yes', ' A missile of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage.
 
 The missile strikes unerringly, even if the target is in melee combat or has less than total cover or total concealment. Specific parts of a creature can’t be singled out. Inanimate objects are not damaged by the spell.
 
