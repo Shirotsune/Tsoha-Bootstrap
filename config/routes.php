@@ -4,16 +4,21 @@ function check_logged_in(){
     BaseController::check_logged_in();
 }
 
-$routes->post('/new_spellbook', function(){
+$routes->post('/new_spellbook','check_logged_in' ,function(){
 SpellbookController::new_spellbook();
 });
 
-$routes->post('/new_spell', function(){
+$routes->post('/new_spell','check_logged_in', function(){
     SpellbookController::new_spell();
 });
 
-$routes->get('/spellbook', function(){
-UserController::new_spellbook();
+
+$routes->get('/spells','check_logged_in', function(){
+    UserController::index();
+});
+
+$routes->get('/spellbooks','check_logged_in', function(){
+UserController::index();
 });
 
 $routes->get('/login', function(){
