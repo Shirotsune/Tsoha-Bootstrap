@@ -71,7 +71,7 @@ class SpellbookController extends BaseController{
             'spellbook_id' => $params['spellbook_id'],
             'spell_id' => $params['spell_id']));
         $spelljoin->add_to_spellbook();
-        Redirect::to('/spellbooks'  . $params['spellbook_id']);
+        Redirect::to('/spellbooks/'  . $params['spellbook_id']);
     }
 
     public static function add_to_spellbook($id){
