@@ -48,7 +48,7 @@
         {% endif %}
         <td>
         <form method="post" action="{{base_path}}/spell_to_spellbook">
-            <input type="hidden" name="spellbook_id" value="{{spell.id}}">
+            <input type="hidden" name="spellbook_id" value="{{spellbook_id}}">
             <input type="hidden" name="spell_id" value="{{spell.id}}">
         <button type="submit" class="btn-primary">Add this spell to your Spellbook</button>
         </form>
