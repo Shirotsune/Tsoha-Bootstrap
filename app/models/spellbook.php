@@ -49,12 +49,12 @@ class Spellbook extends BaseModel{
     public function add(){
         Kint::dump($this->player_id);
         Kint::dump($this->name);
-        /*
+
     $query = DB::connection()->prepare('INSERT INTO Spellbook (player_id, name) VALUES (:player_id, :name)');     
-    $query->execute(array('player_id' => $this.player_id, 'name' => $this.name));
+    $query->execute(array('player_id' => $this->player_id, 'name' => $this->name));
     $row = $query->fetch();
     $this->id = $row['id'];
-    */
+
 
     }
 
