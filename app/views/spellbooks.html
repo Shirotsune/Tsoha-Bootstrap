@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
+<h1> All Spellbooks</h1>
 
+<p> <a href="{{base_path}}" class="btn btn-success"> Add a spellbook</a> </p>
 
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Spellbooks Name</th>
+    </tr>
+    </thead>
 
+    <tbody>
+    {% for spellbook in spellbooks %}
+    <tr>
+        <td>{{spellbook.name}}</td>
+    </tr>
+    </tbody>
+
+</table>
 {% endblock %}

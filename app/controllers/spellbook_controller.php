@@ -33,11 +33,13 @@ class SpellbookController extends BaseController{
     }
 
     public static function spells(){
-        View::make('spells.html');
+        $spells = Spell::all();
+        View::make('spells.html', array('spells' => $spells));
     }
 
     public static function spellbooks(){
-        View::make('spellbooks.html');
+        $spellbooks = Spellbook::all();
+        View::make('spellbooks.html', array('spellbooks' => $spellbooks));
     }
 
 
