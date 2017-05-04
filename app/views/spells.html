@@ -29,13 +29,25 @@
         <td>{{spell.type}}</td>
         <td>{{spell.school}}</td>
         <td>{{spell.level}}</td>
+        {% if spell.components}
         <td>{{spell.components}}</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
         <td>{{spell.castingtime}}</td>
         <td>{{spell.effect}}</td>
         <td>{{spell.targets}}</td>
         <td>{{spell.duration}}</td>
+        {% if spell.savingthrow}
         <td>{{spell.savingthrow}}</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
+        {% if spell.spellresistance}
         <td>{{spell.spellresistance}}</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
 
     </tr>
     {% endfor %}
