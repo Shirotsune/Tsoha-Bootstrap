@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1> Adding spell to {{spellbook.name}} </h1>
+<h1> Adding spell to {{list.spellbook.name}} </h1>
 
 <table class="table table-striped table-bordered">
     <thead>
@@ -21,35 +21,35 @@
     </thead>
 
     <tbody>
-    {% for spell in spells %}
+    {% for spell in list.spells %}
     <tr>
-        <td><a href="{{base_path}}/spells/{{spell.id}}">{{spell.name}}</a></td>
-        <td>{{spell.type}}</td>
-        <td>{{spell.school}}</td>
-        <td>{{spell.level}}</td>
-        {% if spell.components %}
-        <td>{{spell.components}}</td>
+        <td><a href="{{base_path}}/spells/{{spell.id}}">{{list.spell.name}}</a></td>
+        <td>{{list.spell.type}}</td>
+        <td>{{list.spell.school}}</td>
+        <td>{{list.spell.level}}</td>
+        {% if list.spell.components %}
+        <td>{{list.spell.components}}</td>
         {% else %}
         <td>No</td>
         {% endif %}
-        <td>{{spell.castingtime}}</td>
-        <td>{{spell.effect}}</td>
-        <td>{{spell.targets}}</td>
-        <td>{{spell.duration}}</td>
-        {% if spell.savingthrow %}
-        <td>{{spell.savingthrow}}</td>
+        <td>{{list.spell.castingtime}}</td>
+        <td>{{list.spell.effect}}</td>
+        <td>{{list.spell.targets}}</td>
+        <td>{{list.spell.duration}}</td>
+        {% if list.spell.savingthrow %}
+        <td>{{list.spell.savingthrow}}</td>
         {% else %}
         <td>No</td>
         {% endif %}
-        {% if spell.spellresistance %}
-        <td>{{spell.spellresistance}}</td>
+        {% if list.spell.spellresistance %}
+        <td>{{list.spell.spellresistance}}</td>
         {% else %}
         <td>No</td>
         {% endif %}
         <td>
         <form method="post" action="{{base_path}}/spell_to_spellbook">
-            <input type="hidden" name="spellbook_id" value="{{spellbook.id}}">
-            <input type="hidden" name="spell_id" value="{{spell.id}}">
+            <input type="hidden" name="spellbook_id" value="{{list.spellbook.id}}">
+            <input type="hidden" name="spell_id" value="{{list.spell.id}}">
         <button type="submit" class="btn-primary">Add this spell to your Spellbook</button>
         </form>
         </td>
