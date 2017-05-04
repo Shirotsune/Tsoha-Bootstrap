@@ -4,9 +4,8 @@ class SpellbookController extends BaseController{
 
     public static function new_spellbook(){
         $params = $_POST;
-
         $spellbook = new Spellbook(array(
-        'player_id' => $_SESSION['user'],
+        'player_id' => user_controller::get_user_logged_in(),
         'name' => $params['name']
         ));
     $spellbook->add();
