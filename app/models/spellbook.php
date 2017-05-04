@@ -40,13 +40,13 @@ class Spellbook extends BaseModel{
       return null;
     }
 
-    public static function delete(){
+    public function delete(){
     $SpellJoin.cleanup_spellbook($this.id);
     $query = DB::connection()->prepare('DELETE FROM Spellbook WHERE id = :id');
     $query->execute(array('id' => $this.id));   
     }
 
-    public static function add(){
+    public function add(){
     $query = DB::connection()->prepare('INSERT INTO Spellbook (player_id, name) VALUES (:player_id, :name)');     
     $query->execute(array('player_id' => $this.player_id, 'name' => $this.name));
     $row = $query->fetch();
@@ -55,7 +55,7 @@ class Spellbook extends BaseModel{
 
     }
 
-    public static function update(){
+    public function update(){
     $query = DB::connection()->prepare('UPDATE Spellbook SET player_id = :player_id,  name = :name');     
     $query->execute(array('player_id' => $this.player_id, 'name' => $this.name));
     
@@ -85,12 +85,12 @@ class SpellJoin extends BaseModel{
       return $spells_in_book;
       }     
 
-      public static function add_to_spellbook(){
+      public function add_to_spellbook(){
       $query = DB::connection()->prepare('INSERT INTO Spells (spellbook_id, spell_id) VALUES (:spellbook_id, :spell_id)');
       $query->execute(array('spellbook_id'=> $this.spellbook_id, 'spell_id' => $this.spell_id)); 
       }
 
-      public static function remove_from_spellbook(){
+      public function remove_from_spellbook(){
       $query = DB::connection()->prepare('DELETE FROM Spells WHERE spellbook_id = :spellbook_id AND spell_id = :spell_id');
       $query->execute(array('spellbook_id'=> $this.spellbook_id, 'spell_id' => $this.spell_id)); 
       }
@@ -179,8 +179,8 @@ class Spell extends BaseModel{
     $this->id = $row['id'];
     }
 
-public static function delete(){
-    $SpellJoin.cleanup_spell($this.id);
+public function delete(){
+    SpellJoin.cleanup_spell($this.id);
     $query = DB::connection()->prepare('DELETE FROM Spell WHERE id = :id');
     $query->execute(array('id' => $this.id));   
     }
