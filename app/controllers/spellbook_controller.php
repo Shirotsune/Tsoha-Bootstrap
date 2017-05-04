@@ -1,0 +1,36 @@
+<?php
+
+class SpellbookController extends BaseController{
+
+    public static function new_spellbook(){
+        $params = $_POST;
+
+        $spellbook = new Spellbook(array(
+        'player_id' => $_SESSION['user'],
+        'name' => $params['name']
+        ));
+    $spellbook->add();
+    }
+
+    public static function new_spell(){
+        $params = $_POST;
+
+        $spell = new Spell(array(
+            'id' => $params['id'],
+            'name' => $params['name'],
+            'type' => $params['type'],
+            'school' => $params['school'],
+            'level' => $params['level'],
+            'components' => $params['components'],
+            'castingtime' => $params['castingtime'],
+            'range' => $params['range'],
+            'effect' => $params['effect'],
+            'targets' => $params['targets'],
+            'duration' => $params['duration'],
+            'savingthrow' => $params['savingthrow'],
+            'description' => $params['description']));
+        $spell->add_spell();
+    }
+
+
+}
