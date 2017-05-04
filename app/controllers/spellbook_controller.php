@@ -42,5 +42,9 @@ class SpellbookController extends BaseController{
         View::make('spellbooks.html', array('spellbooks' => $spellbooks));
     }
 
+    public static function add_spellbook(){
+        View::make('new_spellbook.html');
+    }
+
 
 }

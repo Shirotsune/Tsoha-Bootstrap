@@ -9,8 +9,8 @@ class Spellbook extends BaseModel{
       }
 
       public static function all(){
-      $query = DB::connection()->prepare('SELECT * FROM Spellbook');
-      $query->execute();
+      $query = DB::connection()->prepare('SELECT * FROM Spellbook WHERE player_id = :player_id');
+      $query->execute(array('player_id' => $_SESSION['user']));
       $rows = $query->fetchAll();
       $spellbooks = array();
 
