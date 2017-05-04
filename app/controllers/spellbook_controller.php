@@ -4,7 +4,7 @@ class SpellbookController extends BaseController{
 
     public static function new_spellbook(){
         $params = $_POST;
-        Kint::dump($_SESSION['user']);
+        Kint::dump(array('player_id' => $_SESSION['user']));
         Kint::dump($params);
         /*$spellbook = new Spellbook(array(
         'player_id' => $_SESSION['user'],
