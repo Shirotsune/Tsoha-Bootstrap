@@ -112,7 +112,7 @@ class SpellJoin extends BaseModel{
 
 class Spell extends BaseModel{
 
-    public $id, $name, $type, $school, $level, $components, $castingtime, $range, $effect, $targets, $duration, $savingthrow, $description;
+    public $id, $name, $type, $school, $level, $components, $castingtime, $range, $effect, $targets, $duration, $savingthrow, $spellresistance ,$description;
 
     public function __construct($attributes){
         parent::__construct($attributes);
