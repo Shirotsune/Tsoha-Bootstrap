@@ -14,11 +14,11 @@ $routes->post('/new_spell','check_logged_in', function(){
 
 
 $routes->get('/spells','check_logged_in', function(){
-    UserController::index();
+    SpellbookController::spells();
 });
 
 $routes->get('/spellbooks','check_logged_in', function(){
-UserController::index();
+SpellbookController::spellbooks();
 });
 
 $routes->get('/login', function(){
