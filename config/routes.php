@@ -12,7 +12,7 @@ $routes->post('/spells','check_logged_in', function(){
     SpellbookController::new_spell();
 });
 
-$routes->post('/spell_to_spellbook', function(){
+$routes->post('/spell_to_spellbook', 'check_logged_in', function(){
     SpellbookController::new_spell_to_spellbook();
 });
 
