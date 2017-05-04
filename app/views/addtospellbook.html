@@ -23,26 +23,26 @@
     <tbody>
     {% for spell in list.spells %}
     <tr>
-        <td><a href="{{base_path}}/spells/{{spell.id}}">{{list.spell.name}}</a></td>
-        <td>{{list.spell.type}}</td>
-        <td>{{list.spell.school}}</td>
-        <td>{{list.spell.level}}</td>
-        {% if list.spell.components %}
-        <td>{{list.spell.components}}</td>
+        <td><a href="{{base_path}}/spells/{{spell.id}}">{{spell.name}}</a></td>
+        <td>{{spell.type}}</td>
+        <td>{{spell.school}}</td>
+        <td>{{spell.level}}</td>
+        {% if spell.components %}
+        <td>{{spell.components}}</td>
         {% else %}
         <td>No</td>
         {% endif %}
-        <td>{{list.spell.castingtime}}</td>
-        <td>{{list.spell.effect}}</td>
-        <td>{{list.spell.targets}}</td>
-        <td>{{list.spell.duration}}</td>
-        {% if list.spell.savingthrow %}
-        <td>{{list.spell.savingthrow}}</td>
+        <td>{{spell.castingtime}}</td>
+        <td>{{spell.effect}}</td>
+        <td>{{spell.targets}}</td>
+        <td>{{spell.duration}}</td>
+        {% if spell.savingthrow %}
+        <td>{{spell.savingthrow}}</td>
         {% else %}
         <td>No</td>
         {% endif %}
-        {% if list.spell.spellresistance %}
-        <td>{{list.spell.spellresistance}}</td>
+        {% if spell.spellresistance %}
+        <td>{{spell.spellresistance}}</td>
         {% else %}
         <td>No</td>
         {% endif %}
