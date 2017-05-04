@@ -187,3 +187,34 @@ class Spell extends BaseModel{
         $query->execute(array('id' => $this->id));
     }
 }
+
+
+class JoinSQL extends BaseModel{
+    public static function find($id){
+        $query = DB::connection()->prepare('SELECT * FROM Spell INNER JOIN Spells WHERE spellbook_id = :id LIMIT 1');
+        $query->execute(array('id' => $id));
+
+        $rows = $query->fetchAll();
+        $spells = array();
+
+        foreach($rows as $row){
+            $spells[] = new Spell(array(
+                'id' => $row['id'],
+                'name' => $row['name'],
+                'type' => $row['type'],
+                'school' => $row['school'],
+                'level' => $row['level'],
+                'components' => $row['components'],
+                'castingtime' => $row['castingtime'],
+                'range' => $row['range'],
+                'effect' => $row['effect'],
+                'targets' => $row['targets'],
+                'duration' => $row['duration'],
+                'savingthrow' => $row['savingthrow'],
+                'spellresistance' => $row['spellresistance'],
+                'description' => $row['description']));
+        }
+        return $spells;
+    }
+
+}
