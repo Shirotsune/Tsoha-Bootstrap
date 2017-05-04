@@ -26,7 +26,7 @@
     <tbody>
     {% for spell in spells %}
     <tr>
-        <td>{{spell.name}}</td>
+        <td><a href="{{base_path}}/spells/{{spell.id}}">{{spell.name}}</a></td>
         <td>{{spell.type}}</td>
         <td>{{spell.school}}</td>
         <td>{{spell.level}}</td>
