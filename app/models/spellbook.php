@@ -191,7 +191,7 @@ class Spell extends BaseModel{
 
 class JoinSQL extends BaseModel{
     public static function find($id){
-        $query = DB::connection()->prepare('SELECT * FROM Spell INNER JOIN Spells ON Spells.id = Spell.spell_id WHERE Spells.spellbook_id = :id LIMIT 1');
+        $query = DB::connection()->prepare('SELECT * FROM Spell INNER JOIN Spells ON Spell.id = Spells.spell_id WHERE Spells.spellbook_id = :id LIMIT 1');
         $query->execute(array('id' => $id));
 
         $rows = $query->fetchAll();
