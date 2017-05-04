@@ -12,7 +12,7 @@ class SpellbookController extends BaseController{
         'name' => $params['name']
         ));
     $spellbook->add();
-    Redirect::to('spellbooks');
+    Redirect::to('/spellbooks');
     }
 
     public static function new_spell(){
@@ -32,6 +32,7 @@ class SpellbookController extends BaseController{
             'spellresistance' => $params['spellresistance'],
             'description' => $params['description']));
         $spell->add_spell();
+        Redirect::to('spells');
     }
 
     public static function spells(){
