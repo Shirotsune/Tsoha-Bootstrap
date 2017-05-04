@@ -30,6 +30,7 @@ class SpellbookController extends BaseController{
             'targets' => $params['targets'],
             'duration' => $params['duration'],
             'savingthrow' => $params['savingthrow'],
+            'spellresistance' => $params['spellresistance'],
             'description' => $params['description']));
         $spell->add_spell();
     }
@@ -48,5 +49,8 @@ class SpellbookController extends BaseController{
         View::make('new_spellbook.html');
     }
 
+    public static function add_spell(){
+        View::make('new_spell.html');
+    }
 
 }

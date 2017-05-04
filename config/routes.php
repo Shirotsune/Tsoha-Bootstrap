@@ -13,6 +13,11 @@ $routes->post('/new_spell','check_logged_in', function(){
 });
 
 
+$routes->get('/new_spell','check_logged_in', function(){
+    SpellbookController::add_spell();
+});
+
+
 $routes->get('/new_spellbook', 'check_logged_in', function(){
     SpellbookController::add_spellbook();
 });
