@@ -44,12 +44,15 @@
         {% else %}
         <td>No</td>
         {% endif %}
-        {% if spell.spellresistance %}
         <td>{{spell.spellresistance}}</td>
-        {% else %}
-        <td>No</td>
-        {% endif %}
+        <td><form method="post" action="{{base_path}}/spells/{{spellbook.id}}/edit">
+            <button class="btn btn-danger">Edit Spell</button>
 
+        </form></td>
+        <td><form method="post" action="{{base_path}}/spells/{{spell.id}}/delete">
+            <button class="btn btn-danger">Delete</button>
+
+        </form></td>
     </tr>
     {% endfor %}
     </tbody>

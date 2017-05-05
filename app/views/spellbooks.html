@@ -16,6 +16,10 @@
     {% for spellbook in spellbooks %}
     <tr>
         <td><a href="{{base_path}}/spellbooks/{{spellbook.id}}">{{spellbook.name}}</a></td>
+        <td><form method="post" action="{{base_path}}/spellbooks/{{spellbook.id}}">
+            <button class="btn btn-danger">Edit Name</button>
+
+        </form></td>
         <td><form method="post" action="{{base_path}}/spellbooks/{{spellbook.id}}/delete">
             <button class="btn btn-danger">Delete</button>
 
