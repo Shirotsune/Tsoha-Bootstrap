@@ -106,6 +106,20 @@ class SpellbookController extends BaseController{
 
     }
 
+    public static function update_spellbook($id){
+        $old = Spellbook::find($id);
+        if($old->player_id != $_SESSION['user']){
+            Redirect::to('/spellbooks');
+        }
+        $params = $_POST;
+        $spellbook = new Spellbook(array(
+            'id' => $old->id,
+            'player_id' => $old->player_id,
+            'name' => $params['name']
+        ));
+
+    }
+
     public static function edit_spell($id){
         $spell = Spell::find($id);
         View::make('edit_spell.html', array('spell' =>$spell));
@@ -131,6 +145,7 @@ class SpellbookController extends BaseController{
             'spellresistance' => $params['spellresistance'],
             'description' => $params['description']));
         $spell->update();
+        Redirect::to('/spells');
     }
 
 }

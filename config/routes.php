@@ -33,6 +33,15 @@ $routes->get('/spellbooks/:id', 'check_logged_in', function($id){
    SpellbookController::showspellbook($id);
 });
 
+
+$routes->get('/spellbooks/:id/edit', 'check_logged_in', function($id){
+    SpellbookController::edit_spellbook($id);
+});
+
+$routes->post('/spellbooks/:id/edit', 'check_logged_in', function($id){
+    SpellbookController::update_spellbook($id);
+});
+
 $routes->get('/spells/:id', 'check_logged_in', function($id){
     SpellbookController::showspell($id);
 });
