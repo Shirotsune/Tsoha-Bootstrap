@@ -97,12 +97,10 @@ class SpellbookController extends BaseController{
 
     public static function edit_spellbook($id){
         $spellbook = Spellbook::find($id);
-        $spelljoin = JoinSQL::find($id);
-        $list = array('spells' => $spelljoin, 'spellbook' => $spellbook);
         if($spellbook->player_id != $_SESSION['user']){
             Redirect::to('/spellbooks');
         }
-        View::make('edit_spellbook.html', array('list' => $list));
+        View::make('edit_spellbook.html', array('spellbook' => $spellbook));
 
     }
 
