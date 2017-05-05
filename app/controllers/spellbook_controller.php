@@ -115,7 +115,8 @@ class SpellbookController extends BaseController{
             'player_id' => $old->player_id,
             'name' => $params['name']
         ));
-
+        $spellbook->update();
+        Redirect::to('/spellbooks');
     }
 
     public static function edit_spell($id){
