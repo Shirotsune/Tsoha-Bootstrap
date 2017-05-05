@@ -89,7 +89,7 @@ class SpellbookController extends BaseController{
 
     public static function delete_spellbook($id){
         $spellbook = Spellbook::find($id);
-        if($spellbook['player_id'] == $_SESSION['user']){
+        if($spellbook->player_id == $_SESSION['user']){
             $spellbook->delete();
         }
         Redirect::to('/spellbooks');
