@@ -80,4 +80,19 @@ class SpellbookController extends BaseController{
         $list = array('spells' => $spells, 'spellbook' => $spellbook);
         View::make('addtospellbook.html', array('list' => $list));//array('spells' => $spells), array('spellbook' => $spellbook));
     }
+
+    public static function delete_spell($id){
+        $spell = Spell::find($id);
+        $spell->delete();
+        Redirect::to('/spells');
+    }
+
+    public static function delete_spellbook($id){
+        $spellbook = Spellbook::find($id);
+        if($spellbook['player_id'] == $_SESSION['user']){
+            $spellbook->delete();
+        }
+        Redirect::to('/spellbooks');
+    }
+
 }

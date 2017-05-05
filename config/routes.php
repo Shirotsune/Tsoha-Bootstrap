@@ -16,6 +16,15 @@ $routes->post('/spell_to_spellbook', 'check_logged_in', function(){
     SpellbookController::new_spell_to_spellbook();
 });
 
+$routes->get('/spells/:id/delete', 'check_logged_in', function($id){
+    SpellbookController::delete_spell($id);
+});
+
+$routes->get('/spellbooks/:id/delete', 'check_logged_in', function($id){
+    SpellbookController::delete_spellbook($id);
+});
+
+
 $routes->get('/spell_to_spellbook/:id', 'check_logged_in', function($id){
     SpellbookController::add_to_spellbook($id);
 });
