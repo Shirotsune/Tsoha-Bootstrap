@@ -102,7 +102,7 @@ class SpellbookController extends BaseController{
         if($spellbook->player_id != $_SESSION['user']){
             Redirect::to('/spellbooks');
         }
-        View::make('spellbook.html', array('list' => $list));
+        View::make('edit_spellbook.html', array('list' => $list));
 
     }
 
