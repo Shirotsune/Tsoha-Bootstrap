@@ -71,6 +71,15 @@ class Spell extends BaseModel{
         $this->id = $row['id'];
     }
 
+    public function update(){
+        $query = DB::connection()->prepare('UPDATE Spell SET name = :name, type = :type, school = :school, level = :level, components = :components, castingtime = :castingtime, range = :range, effect = :effect, targets = :targets, duration = :duration, savingthrow = :savingthrow, spellresistance = :spellresistance, description = :description');
+        $query->execute(array('name' => $this->name, 'type' => $this->type, 'school' => $this->school, 'level' => $this->level, 'components' => $this->components, 'castingtime' => $this->castingtime,
+            'range' => $this->range, 'effect' => $this->effect, 'targets' => $this->targets, 'duration' => $this->duration, 'savingthrow'=>$this->savingthrow,
+            'spellresistance' => $this->spellresistance, 'description' => $this->description));
+        $row = $query->fetch();
+        $this->id = $row['id'];
+        }
+
     public function delete(){
         SpellJoin::cleanup_spell($this->id);
         $query = DB::connection()->prepare('DELETE FROM Spell WHERE id = :id');

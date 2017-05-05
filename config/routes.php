@@ -37,6 +37,14 @@ $routes->get('/spells/:id', 'check_logged_in', function($id){
     SpellbookController::showspell($id);
 });
 
+$routes->get('/spells/:id/edit', 'check_logged_in', function($id){
+    SpellbookController::edit_spell($id);
+});
+
+$routes->post('/spells/:id/edit', 'check_logged_in', function($id){
+    SpellbookController::update_spell($id);
+});
+
 $routes->get('/new_spell','check_logged_in', function(){
     SpellbookController::add_spell();
 });

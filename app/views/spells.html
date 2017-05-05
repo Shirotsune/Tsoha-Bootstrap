@@ -45,8 +45,8 @@
         <td>No</td>
         {% endif %}
         <td>{{spell.spellresistance}}</td>
-        <td><form method="post" action="{{base_path}}/spells/{{spellbook.id}}/edit">
-            <button class="btn btn-danger">Edit Spell</button>
+        <td><form method="post" action="{{base_path}}/spells/{{spell.id}}/edit">
+            <button class="btn btn-primary">Edit Spell</button>
 
         </form></td>
         <td><form method="post" action="{{base_path}}/spells/{{spell.id}}/delete">

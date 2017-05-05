@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1> Edit spell {{spell.name}}</h1>
+
+
+<form method="post" action="{{base_path}}/spells/{{spell.id}}/edit">
+
+    <div class="form-group">
+        <label>Name</label>
+        <input name="name" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Type</label>
+        <input name="type" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>School</label>
+        <input name="school" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Level</label>
+        <input name="level" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Components</label>
+        <input name="components" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Casting Time</label>
+        <input name="castingtime" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Range</label>
+        <input name="range" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Effect</label>
+        <input name="effect" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Targets</label>
+        <input name="targets" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Duration</label>
+        <input name="duration" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Saving Throw</label>
+        <input name="savingthrow" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>spellresistance</label>
+        <input name="spellresistance" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input name="description" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn-primary">Add Spell</button>
+
+    </div>
+</form>
+
+{% endblock %}

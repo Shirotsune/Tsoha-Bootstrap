@@ -8,11 +8,11 @@ class SpellbookController extends BaseController{
         //Kint::dump(array('player_id' => $_SESSION['user']));
         //Kint::dump($params);
         $spellbook = new Spellbook(array(
-        'player_id' => $user['player_id'],
-        'name' => $params['name']
+            'player_id' => $user['player_id'],
+            'name' => $params['name']
         ));
-    $spellbook->add();
-    Redirect::to('/spellbooks');
+        $spellbook->add();
+        Redirect::to('/spellbooks');
     }
 
     public static function new_spell(){
@@ -93,6 +93,44 @@ class SpellbookController extends BaseController{
             $spellbook->delete();
         }
         Redirect::to('/spellbooks');
+    }
+
+    public static function edit_spellbook($id){
+        $spellbook = Spellbook::find($id);
+        $spelljoin = JoinSQL::find($id);
+        $list = array('spells' => $spelljoin, 'spellbook' => $spellbook);
+        if($spellbook->player_id != $_SESSION['user']){
+            Redirect::to('/spellbooks');
+        }
+        View::make('spellbook.html', array('list' => $list));
+
+    }
+
+    public static function edit_spell($id){
+        $spell = Spell::find($id);
+        View::make('edit_spell.html', array('spell' =>$spell));
+    }
+
+    public static function update_spell($id){
+        $old = Spell::find($id);
+
+        $params = $_POST;
+        $spell = new Spell(array(
+            'id' => $old->id,
+            'name' => $params['name'],
+            'type' => $params['type'],
+            'school' => $params['school'],
+            'level' => $params['level'],
+            'components' => $params['components'],
+            'castingtime' => $params['castingtime'],
+            'range' => $params['range'],
+            'effect' => $params['effect'],
+            'targets' => $params['targets'],
+            'duration' => $params['duration'],
+            'savingthrow' => $params['savingthrow'],
+            'spellresistance' => $params['spellresistance'],
+            'description' => $params['description']));
+        $spell->update();
     }
 
 }
